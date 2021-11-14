@@ -23,20 +23,21 @@ class WishListController extends Controller
         return response()->json($wishList, 200);
     }
 
-    // public function store(Integer $user)
-    // {
-    //     $rules = [
-    //         'userId' => 'required',
-    //     ];
-    //     // $validator = Validator::make($userId, $rules);
-    //     // if ($validator->fails())
-    //     // {
-    //     //     return response()->json($validator->errors(), 400);
-    //     // }
-    //     $wishList = WishList::create($user->all());
-    //     return response()->json([
-    //                             "message" => "Added successfully",
-    //                             "data" => $wishList],
-    //                             201);
-    // }
+    public function store(Request $request)
+    {
+        $rules = [
+            'userId' => 'required',
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails())
+        {
+            return response()->json($validator->errors(), 400);
+        }
+        $wishList = WishList::create($request->all());
+        return response()->json([
+                                "message" => "Added successfully",
+                                "data" => $wishList],
+                                201);
+    }
+
 }

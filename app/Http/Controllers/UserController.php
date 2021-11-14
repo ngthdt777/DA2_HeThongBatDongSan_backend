@@ -40,9 +40,6 @@ class UserController extends Controller
             return response()->json($validator->errors(), 400);
         }
         $user = UserModel::create($request->all());
-        // if ($user){
-        //     WishList::create($user->attributes());
-        // }
         return response()->json([
                                 "message" => "Added successfully",
                                 "data" => $user],

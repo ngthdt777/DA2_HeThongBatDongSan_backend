@@ -18,5 +18,7 @@ class WishList extends Model
     public function wishListRealEstate(){
         return $this->hasMany(wishListRealEstate::class, 'wishListId','id' );
     }
-
+    public function user(){
+        return $this->belongsTo(UserModel::class, 'userId','id' );
+    }
 }
