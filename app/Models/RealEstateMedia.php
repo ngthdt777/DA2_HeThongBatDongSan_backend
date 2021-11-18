@@ -12,6 +12,13 @@ class RealEstateMedia extends Model
     protected $table = "real_estate_media";
 
     protected $fillable = [
-        'name'
+        'id',
+        'name',
+        'realEstateId',
+        'type',
+        'path'
     ];
+    public function realEstate() {
+        return $this->belongsTo(RealEstatelModel::class);
+    }
 }

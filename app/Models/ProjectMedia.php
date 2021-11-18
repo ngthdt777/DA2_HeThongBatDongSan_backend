@@ -12,8 +12,13 @@ class ProjectMedia extends Model
     protected $table = "project_media";
 
     protected $fillable = [
+        'id',
+        'name',
         'projectId',
         'type',
         'path'
     ];
+    public function project() {
+        return $this->belongsTo(ProjectMedia::class);
+    }
 }
