@@ -250,11 +250,19 @@ class RealEstateController extends Controller
         return response()->json($realEstate, 200);
     }
     //-----------lastest-------------------
-    public function GetRealEstateOrderByLastest(Request $request)
+    public function GetRealEstateOrderByLastest()
     {
-
         $realEstate = RealEstate::orderBy('dateCreated','desc')->get();
 
+        return response()->json($realEstate, 200);
+    }
+    //----------------searching-------------------
+    public function GetRealEstateBySearch($key)
+    {
+        $realEstate = RealEstate::where('name', 'ILIKE', '%'.$key.'%')
+                                ->orWhere('address', 'ILIKE', '%'.$key.'%')
+                                ->get();
+        return response()->json($realEstate, 200);
         return response()->json($realEstate, 200);
     }
 }

@@ -45,6 +45,8 @@ Route::get('re/orientation/south-west', [App\Http\Controllers\RealEstateControll
 Route::get('re/orientation/west', [App\Http\Controllers\RealEstateController::class, 'GetRealEstateOrderByOrientationWest']);
 Route::get('re/orientation/north-west', [App\Http\Controllers\RealEstateController::class, 'GetRealEstateOrderByOrientationNorthWest']);
 
+Route::get('re/search/{key}', [App\Http\Controllers\RealEstateController::class, 'GetRealEstateBySearch']);
+
 //-------------------------------------------------------------------------------------------------
 Route::get('ret', [App\Http\Controllers\RealEstateTypeController::class, 'index']);
 //Route::get('rem', [App\Http\Controllers\RealEstateMediaController::class, 'index']);
